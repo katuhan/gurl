@@ -1,27 +1,18 @@
-##############################################################
-# function : makefile的通用定义,子目录中的makefile通常包含它 
-# author   ：gpan                                            
-# time     : Thu Dec 22 16:36:45 CST 2016
-############################################################## 
 CC = gcc
 
-#-g 输出调试信息
-#宏_REENTRANT告诉编译器我们需要可重入功能
-#-O2优化级别 -O0表示没有优化,-O1为缺省值，-O3优化级别最高
-#CFLAGS = -g -O2 -D_REENTRANT 
 CFLAGS = -g -DDEBUG=0  -Wall -std=gnu11
 
-####### PATH定义 #######
+####### PATH define #######
 BIN_DIR = ../bin
 INC_DIR = ../inc
 LIB_DIR = ../lib
 
-####### 库引用LIBS #######
+####### LIB reference #######
 LIBS = -lpthread -lcurl -lm
 LIB_GPUB = ${BIN_DIR}/libgpub.a
 LIBS += ${LIB_GPUB}
 
-####### 清除内容 #######
+####### clean #######
 CLEAN_FILES = core \
 	core.* \
 	*.core \
